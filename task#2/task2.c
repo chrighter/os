@@ -26,12 +26,12 @@ int get_sparce_file(char *file_name) {
 
         if (readed) {
             while (i < readed) {
-                while (read_buffer[i] == 0) {
+                while (i < readed && read_buffer[i] == 0) {
                     offset++;
                     i++;
                 }
 
-                while (read_buffer[i] != 0) {
+                while (i < readed && read_buffer[i] != 0) {
                     write_buffer[len] = read_buffer[i];
                     len++;
                     i++;
